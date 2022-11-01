@@ -11,7 +11,6 @@ header = """
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/skeleton.css">
     <link rel="stylesheet" href="style/style.css">
-    <base href="/oshd_log/">
     <title>OSHD</title>
 </head>
 
@@ -29,7 +28,7 @@ footer = """
 function log_html(log_file, title, html_file)
 
     html = header
-    html = html * """<a href="#" class="button button-primary">Home</a>"""
+    html = html * """<a href="/" class="button button-primary">Home</a>"""
     html = html * "<h2>" * title * "</h2>"
     for line in Iterators.reverse(eachline(log_file))
         if contains(lowercase(line), "error")
