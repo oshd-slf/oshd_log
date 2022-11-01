@@ -53,11 +53,11 @@ function index_html()
     html = header
     html = html * """
     <p>
-        <a href="/log_srv1.html" class="button button-primary">Log file server 1</a>
+        <a href="log_srv1.html" class="button button-primary">Log file server 1</a>
     </p>
 
     <p>
-        <a href="/log_srv2.html" class="button button-primary">Log file server 2</a>
+        <a href="log_srv2.html" class="button button-primary">Log file server 2</a>
     </p>
     """
     html = html * footer
