@@ -31,7 +31,6 @@ function log_html(log_file, title, html_file)
     html = header
     html = html * """<a href="#" class="button button-primary">Home</a>"""
     html = html * "<h2>" * title * "</h2>"
-    html = html * "<p>Web site updated " * string(now()) * "</p>"
     for line in Iterators.reverse(eachline(log_file))
         if contains(lowercase(line), "error")
             html = html * "<p class=\"error\">" * line * "</p>"
@@ -50,12 +49,16 @@ end
 
 function index_html()
 
+    datestr = Dates.format(now(),"e d u HH:MM")
+
     html = header
     html = html * """
     <p>
+        Webpage last updated: $(datestr)
+    </p>
+    <p>
         <a href="log_srv1.html" class="button button-primary">Log file server 1</a>
     </p>
-
     <p>
         <a href="log_srv2.html" class="button button-primary">Log file server 2</a>
     </p>
