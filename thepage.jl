@@ -74,23 +74,34 @@ end
 
 function update_page(timer)
 
-    index_html()
+    try
+        
+        index_html()
 
-    log_html("K:/OSHD_SCHEDULER/oshd_scheduler_srv1.log", "Log file on srv 1", "log_srv1.html")
+        log_html("K:/OSHD_SCHEDULER/oshd_scheduler_srv1.log", "Log file on srv 1", "log_srv1.html")
 
-    log_html("U:/OSHD_SCHEDULER/oshd_scheduler_srv2.log", "Log file on srv 2", "log_srv2.html")
+        log_html("U:/OSHD_SCHEDULER/oshd_scheduler_srv2.log", "Log file on srv 2", "log_srv2.html")
 
-    msg = "page updated " * Dates.format(now(),"yyyy-mm-dd HH:MM")
+        msg = "web page with log updated " * Dates.format(now(),"yyyy-mm-dd HH:MM:SS")
 
-    run(`git add .`)
+        tmp = readchomp(`git add .`);
 
-    run(`git commit -m $msg`)
+        tmp = readchomp(`git commit -m $msg`);
 
-    run(`git push`)
+        tmp = readchomp(`git push`);
 
-    println(msg)
+        @info msg
+
+    catch
+
+        msg = "web page with log not updated " * Dates.format(now(),"yyyy-mm-dd HH:MM:SS")
+
+        @error msg
+
+    end
+    
 
 end
 
 
-Timer(update_page, 10, interval=60*5)
+Timer(update_page, 10, interval=5)
