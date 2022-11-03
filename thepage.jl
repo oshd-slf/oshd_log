@@ -71,8 +71,24 @@ function index_html()
 
 end
 
-index_html()
 
-log_html("K:/OSHD_SCHEDULER/oshd_scheduler_srv1.log", "Log file on srv 1", "log_srv1.html")
+function update_page()
 
-log_html("U:/OSHD_SCHEDULER/oshd_scheduler_srv2.log", "Log file on srv 2", "log_srv2.html")
+    index_html()
+
+    log_html("K:/OSHD_SCHEDULER/oshd_scheduler_srv1.log", "Log file on srv 1", "log_srv1.html")
+
+    log_html("U:/OSHD_SCHEDULER/oshd_scheduler_srv2.log", "Log file on srv 2", "log_srv2.html")
+
+    msg = "page updated " * Dates.format(now(),"yyyy-mm-dd HH:MM")
+
+    run(`git add .`)
+
+    run(`git commit -m $msg`)
+
+    run(`git push`)
+
+end
+
+
+update_page()
