@@ -72,7 +72,7 @@ function index_html()
 end
 
 
-function update_page()
+function update_page(timer)
 
     index_html()
 
@@ -88,7 +88,8 @@ function update_page()
 
     run(`git push`)
 
+    println(msg)
+
 end
 
-
-update_page()
+Timer(update_page, 10, interval=60*5)
