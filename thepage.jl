@@ -83,7 +83,7 @@ function update_page(timer)
 
         log_html("U:/OSHD_SCHEDULER/oshd_scheduler_srv2.log", "Log file on srv 2", "log_srv2.html")
 
-        msg = "web page with log updated " * Dates.format(now(),"yyyy-mm-dd HH:MM:SS")
+        msg = Dates.format(now(),"yyyy-mm-dd HH:MM:SS") * " - web page with log updated "
 
         IOCapture.capture() do
 
@@ -99,7 +99,7 @@ function update_page(timer)
 
     catch
 
-        msg = "web page with log not updated " * Dates.format(now(),"yyyy-mm-dd HH:MM:SS")
+        msg = Dates.format(now(),"yyyy-mm-dd HH:MM:SS") * " - web page with log not updated "
 
         @error msg
 
