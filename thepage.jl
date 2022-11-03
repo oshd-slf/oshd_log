@@ -1,4 +1,5 @@
 using Dates
+using IOCapture
 
 header = """
 <!DOCTYPE html>
@@ -84,11 +85,15 @@ function update_page(timer)
 
         msg = "web page with log updated " * Dates.format(now(),"yyyy-mm-dd HH:MM:SS")
 
-        tmp = readchomp(`git add .`);
+        IOCapture.capture() do
 
-        tmp = readchomp(`git commit -m $msg`);
+            run(`git add .`)
 
-        tmp = readchomp(`git push`);
+            run(`git commit -m $msg`);
+
+            run(`git push`);
+
+        end;
 
         @info msg
 
@@ -104,4 +109,4 @@ function update_page(timer)
 end
 
 
-Timer(update_page, 10, interval=5*60)
+Timer(update_page, 2, interval=5)
