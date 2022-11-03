@@ -109,4 +109,4 @@ function update_page(timer)
 end
 
 
-Timer(update_page, 2, interval=1*60)
+Timer(update_page, 2, interval=5*60)
