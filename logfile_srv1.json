@@ -1,0 +1,14 @@
+[
+  {
+    "error": false,
+    "msg": "22-Dec-2022 21:25:28 > OSHD_SCHEDULER_SRV1 > nothing to do"
+  },
+  {
+    "error": false,
+    "msg": "22-Dec-2022 21:15:12 > OSHD_SCHEDULER_SRV1 > calling standard updating tasks on OSHD_SCHEDULER_SRV2"
+  },
+  {
+    "error": true,
+    "msg": "22-Dec-2022 13:26:33 > OSHD_SCHEDULER_SRV1 > an error occured > the scheduler was not stopped"
+  }
+]

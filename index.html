@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="app" class="container">
         <h1>OSHD</h1>
         <p>
             Webpage last updated: Thu 22 Dec 21:10
@@ -25,8 +25,14 @@
         <p>
             <a href="log_srv2.html" class="button button-primary">Log file server 2</a>
         </p>
+
+        <p v-for="log in logMessages">{{log["msg"]}}</p>
+
     </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="./app.js"></script>
+
 </body>
 
 </html>
